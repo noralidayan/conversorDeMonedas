@@ -2,16 +2,20 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Scanner;
 import com.google.gson.Gson;
 
 public class ConversorMonedas {
-    //Declaro e inicializo como constantes mi api key y la url
-    private static final String API_KEY = "c16abad7a0ab3b6529ac31b7";
-    private static final String BASE_URL = "https://v6.exchangerate-api.com/v6/" + API_KEY + "/latest/";
+    private static String API_KEY;
+    private static String BASE_URL;
 
     public static void main(String[] args) throws Exception {
+        API_KEY = new String(Files.readAllBytes(Paths.get("apikey.txt"))).trim();
+        BASE_URL = "https://v6.exchangerate-api.com/v6/" + API_KEY + "/latest/";
+
         Scanner sc = new Scanner(System.in);
         String continuar = "";
         String monedaBase = null;

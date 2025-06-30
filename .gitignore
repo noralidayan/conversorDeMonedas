@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+###API KEY DEL CONVERSOR DE MONEDAS###
+apikey.txt
